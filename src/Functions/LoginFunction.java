@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package JDBC;
+package Functions;
+import JDBC.DBConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,11 +13,11 @@ import java.sql.ResultSet;
  *
  * @author Admin
  */
-public class Respository {
+public class LoginFunction {
     public String getRole(String username, String password){
-        String sql = "select role \n" +
+        String sql = "select loai_user \n" +
                     "	  from Users\n" +
-                    "	  where username = ? and password = ?";
+                    "	  where ma_user = ? and mat_khau = ?";
         try {
             Connection conn = DBConnect.getConnection();
             PreparedStatement ps = conn.prepareStatement(sql);
@@ -25,7 +26,7 @@ public class Respository {
             ResultSet rs = ps.executeQuery();
             String role = "NO";
             while(rs.next()){
-                role = rs.getString("role");
+                role = rs.getString("loai_user");
             }
             return role;
         } catch (Exception e) {
@@ -34,7 +35,7 @@ public class Respository {
     }
     
     public static void main(String[] args) {
-        Respository repo = new Respository();
-        System.out.println(repo.getRole("nhanvien", "nhanvien123"));
+        LoginFunction repo = new LoginFunction();
+        System.out.println(repo.getRole("admin", "123456"));
     }
 }

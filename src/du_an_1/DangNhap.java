@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package du_an_1;
-import JDBC.Respository;
+import Functions.LoginFunction;
 import javax.swing.*;
 import java.awt.*;
 import javax.swing.JOptionPane;
@@ -14,7 +14,7 @@ import javax.swing.*;
  * @author PHONG
  */
 public class DangNhap extends javax.swing.JFrame {
-private Respository repo = new Respository();
+private LoginFunction repo = new LoginFunction();
     /**
      * Creates new form DangNhap
      */
