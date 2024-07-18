@@ -7,6 +7,8 @@ import JDBC.DBConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import model.LoaiUser;
+import model.User;
 
 
 /**
@@ -14,7 +16,7 @@ import java.sql.ResultSet;
  * @author Admin
  */
 public class LoginFunction {
-    public String getRole(String username, String password){
+    public String Login(String username, String password){
         String sql = "select loai_user \n" +
                     "	  from Users\n" +
                     "	  where ma_user = ? and mat_khau = ?";
@@ -25,8 +27,12 @@ public class LoginFunction {
             ps.setString(2, password);
             ResultSet rs = ps.executeQuery();
             String role = "NO";
+            User user = new User();
+            String ma_user 
             while(rs.next()){
-                role = rs.getString("loai_user");
+                
+                User user = new User(rs.getString("ma_user"), rs.getString("ten"), rs.getString("dia_chi"), 
+                        rs.getInt("sdt"), rs.getBoolean("gioitinh"), new LoaiUser().setMa_loai("loai_user"));
             }
             return role;
         } catch (Exception e) {

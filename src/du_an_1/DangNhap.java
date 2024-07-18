@@ -14,7 +14,7 @@ import javax.swing.*;
  * @author PHONG
  */
 public class DangNhap extends javax.swing.JFrame {
-private LoginFunction repo = new LoginFunction();
+private LoginFunction login = new LoginFunction();
     /**
      * Creates new form DangNhap
      */
@@ -153,7 +153,7 @@ private LoginFunction repo = new LoginFunction();
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String role = repo.getRole(txtLogin.getText(), txtPassword.getText());
+        String role = login.getRole(txtLogin.getText(), txtPassword.getText());
         if(role.equals("NO")){
             JOptionPane.showMessageDialog(this, "Dang nhap that bai");
             
