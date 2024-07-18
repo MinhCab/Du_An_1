@@ -164,6 +164,7 @@ private LoginFunction repo = new LoginFunction();
             
         }else{
             JOptionPane.showMessageDialog(this, "Dang nhap thanh cong che do quan ly");
+            dispose();
             Nhanvien nhanvien = new Nhanvien();
             nhanvien.setVisible(true);
         }
