@@ -153,7 +153,7 @@ private LoginFunction login = new LoginFunction();
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String role = login.getRole(txtLogin.getText(), txtPassword.getText());
+        String role = login.Login(txtLogin.getText(), txtPassword.getText());
         if(role.equals("NO")){
             JOptionPane.showMessageDialog(this, "Dang nhap that bai");
             
@@ -165,7 +165,7 @@ private LoginFunction login = new LoginFunction();
         }else{
             JOptionPane.showMessageDialog(this, "Dang nhap thanh cong che do quan ly");
             dispose();
-            Nhanvien nhanvien = new Nhanvien();
+            Admin nhanvien = new Admin();
             nhanvien.setVisible(true);
         }
     }//GEN-LAST:event_btnLoginActionPerformed

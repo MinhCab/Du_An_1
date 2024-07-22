@@ -392,7 +392,7 @@ public class Banhang extends javax.swing.JFrame {
     private void btnHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHomeActionPerformed
         // TODO add your handling code here:
         dispose();
-        Nhanvien nhanvien = new Nhanvien();
+        Admin nhanvien = new Admin();
         nhanvien.setVisible(true);
     }//GEN-LAST:event_btnHomeActionPerformed
 
