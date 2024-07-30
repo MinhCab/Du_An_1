@@ -14,70 +14,68 @@ public class NhanVien {
     private String sdt;
     private int gioiTinh;
     private String diaChi;
-    private int loai;
+    private LoaiUser loaiUser;
     private String matKhau;
     
-    public NhanVien(String ma, String ten, String sdt, int gioiTinh, String diaChi, int loai, String matKhau) {
+    public NhanVien(String ma, String ten, String sdt, int gioiTinh, String diaChi, LoaiUser loaiUser, String matKhau) {
         this.ma = ma;
         this.ten = ten;
         this.sdt = sdt;
         this.gioiTinh = gioiTinh;
         this.diaChi = diaChi;
-        this.loai = loai;
+        this.loaiUser = loaiUser;
         this.matKhau = matKhau;
     }
 
     public NhanVien() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+
     public String getMa() {
         return ma;
     }
-    
+
     public void setMa(String ma) {
         this.ma = ma;
     }
-    
+
     public String getTen() {
         return ten;
     }
-    
+
     public void setTen(String ten) {
         this.ten = ten;
     }
-    
-    
+
     public String getSdt() {
         return sdt;
     }
-    
+
     public void setSdt(String sdt) {
         this.sdt = sdt;
     }
-    
+
     public int getGioiTinh() {
         return gioiTinh;
     }
-    
+
     public void setGioiTinh(int gioiTinh) {
         this.gioiTinh = gioiTinh;
     }
-    
+
     public String getDiaChi() {
-        return ma;
+        return diaChi;
     }
-    
+
     public void setDiaChi(String diaChi) {
         this.diaChi = diaChi;
     }
-    
-    public int getloai() {
-        return loai;
+
+    public LoaiUser getLoaiUser() {
+        return loaiUser;
     }
-    
-    public void setloai(int loai) {
-        this.loai = loai;
+
+    public void setLoaiUser(LoaiUser loaiUser) {
+        this.loaiUser = loaiUser;
     }
 
     public String getMatKhau() {
@@ -89,9 +87,16 @@ public class NhanVien {
     }
     
     
+    
+    @Override
+    public String toString() {
+        return ma + " " + ten + " " + diaChi + " " + loaiUser.getMa_loai() + " " + loaiUser.getTen();
+    }
+    
+    
     public Object[] toRowTable() {
         return new Object[]{
-            ma,ten,sdt,gioiTinh == 1 ? "Nam":"Nữ",diaChi,loai == 1 ? "Nhân viên bán hàng":"Nhân viên kho",matKhau
+            ma,ten,sdt,gioiTinh == 1 ? "Nam":"Nữ",loaiUser.getTen(), diaChi
         };
     }
 }

@@ -9,6 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import model.LoaiUser;
 import model.user;
 import model.NhanVien;
 
@@ -39,7 +40,7 @@ public class LoginFunction {
     
     public List<NhanVien> getAll(){
         String sql = """
-                     select ma_user, ten,dia_chi,sdt,gioitinh,loai_user,mat_khau from Users
+                     SELECT t1.ma_user, t1.ten, t1.sdt, t1.dia_chi, t1.gioitinh, t1.loai_user, t2.ten as tenLoai FROM Users as t1, LoaiUser as t2 WHERE t1.loai_user = t2.ma_loai
                      """;
         List<NhanVien> list = new ArrayList<>();
         try {
@@ -48,19 +49,38 @@ public class LoginFunction {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {                
                 NhanVien nv = new NhanVien();
-                nv.setMa(rs.getString("ma"));
+                nv.setMa(rs.getString("ma_user"));
                 nv.setTen(rs.getString("ten"));
                 nv.setSdt(rs.getString("sdt"));
                 nv.setGioiTinh(rs.getInt("gioitinh"));
-                nv.setDiaChi(rs.getString("diachi"));
-                nv.setloai(rs.getInt("LoaiUser"));
-                nv.setMatKhau(rs.getString("matKhau"));
+                nv.setDiaChi(rs.getString("dia_chi"));
+                nv.setLoaiUser(new LoaiUser(rs.getString("loai_user"), rs.getString("tenLoai")));
                 list.add(nv);
+                System.out.println(nv.toString());
             }
             return list;
         } catch (Exception e) {
             System.out.println(e);
             return null;
+        }
+    }
+    public int themNhanVien(NhanVien nv){
+        String sql = """
+                     insert into Users(t1.ma_user, t1.ten, t1.sdt, t1.dia_chi, t1.gioitinh)
+                     values(?,?,?,?,?,?,?)
+                     """;
+        try {
+            Connection conn = DBConnect.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, nv.getMa());
+            ps.setString(2, nv.getTen());
+            ps.setString(3, nv.getSdt());
+            ps.setString(4, nv.getDiaChi());
+            ps.setInt(5, nv.getGioiTinh());
+            return x;
+        } catch (Exception e) {
+            System.out.println(e);
+            return 0;
         }
     }
     
@@ -77,8 +97,11 @@ public class LoginFunction {
             ps.setString(3, nv.getSdt());
             ps.setInt(4, nv.getGioiTinh());
             ps.setString(5, nv.getDiaChi());
-            ps.setInt(6, nv.getloai());
-            ps.setString(7, nv.getMatKhau());
+            ps.setString(6, nv.getMatKhau());
+            ResultSet rs = ps.executeQuery();  // Assuming you are executing a query
+            if (rs.next()) {
+                 nv.setLoaiUser(new LoaiUser(rs.getString("loai_user"), rs.getString("tenLoai")));
+    }
             int x = ps.executeUpdate();
             return x;
         } catch (Exception e) {
