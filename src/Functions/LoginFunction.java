@@ -7,7 +7,10 @@ import JDBC.DBConnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import model.User;
+import java.util.ArrayList;
+import java.util.List;
+import model.user;
+import model.NhanVien;
 
 public class LoginFunction {
 
@@ -30,6 +33,76 @@ public class LoginFunction {
         }
 
         return role;
+    }
+    //Quan ly nhan vien
+    
+    
+    public List<NhanVien> getAll(){
+        String sql = """
+                     select ma_user, ten,dia_chi,sdt,gioitinh,loai_user,mat_khau from Users
+                     """;
+        List<NhanVien> list = new ArrayList<>();
+        try {
+            Connection conn = DBConnect.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {                
+                NhanVien nv = new NhanVien();
+                nv.setMa(rs.getString("ma"));
+                nv.setTen(rs.getString("ten"));
+                nv.setSdt(rs.getString("sdt"));
+                nv.setGioiTinh(rs.getInt("gioitinh"));
+                nv.setDiaChi(rs.getString("diachi"));
+                nv.setloai(rs.getInt("LoaiUser"));
+                nv.setMatKhau(rs.getString("matKhau"));
+                list.add(nv);
+            }
+            return list;
+        } catch (Exception e) {
+            System.out.println(e);
+            return null;
+        }
+    }
+    
+    public int xoaNhanVien(NhanVien nv){
+        String sql = """
+                     delete from Users
+                     where ma_user = ?
+                     """;
+        try {
+            Connection conn = DBConnect.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, nv.getMa());
+            ps.setString(2, nv.getTen());
+            ps.setString(3, nv.getSdt());
+            ps.setInt(4, nv.getGioiTinh());
+            ps.setString(5, nv.getDiaChi());
+            ps.setInt(6, nv.getloai());
+            ps.setString(7, nv.getMatKhau());
+            int x = ps.executeUpdate();
+            return x;
+        } catch (Exception e) {
+            System.out.println(e);
+            return 0;
+        }
+    }
+    
+    public int suaSinhVien(NhanVien nv){
+        String sql = """
+                     update Users
+                     set ma_user = ?,ten = ?,dia_chi = ?,sdt = ?,gioitinh = ?,loai_user = ?,mat_khau = ?
+                     where ma_user = ?
+                     """;
+        try {
+            Connection conn = DBConnect.getConnection();
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setString(1, nv.getTen());
+            int x = ps.executeUpdate();
+            return x;
+        } catch (Exception e) {
+            System.out.println(e);
+            return 0;
+        }
     }
 
     public static void main(String[] args) {

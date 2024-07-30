@@ -8,16 +8,16 @@ package model;
  *
  * @author Admin
  */
-public class User {
+public class user {
     private String ma_user, ten, dia_chi;
     private int sdt;
     private boolean gioiTinh;
     private LoaiUser loaiUser;
 
-    public User() {
+    public user() {
     }
 
-    public User(String ma_user, String ten, String dia_chi, int sdt, boolean gioiTinh, LoaiUser loaiUser) {
+    public user(String ma_user, String ten, String dia_chi, int sdt, boolean gioiTinh, LoaiUser loaiUser) {
         this.ma_user = ma_user;
         this.ten = ten;
         this.dia_chi = dia_chi;

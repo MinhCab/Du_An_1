@@ -7,6 +7,7 @@ package du_an_1;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+
 /**
  *
  * @author PHONG
@@ -90,10 +91,10 @@ public class Admin extends javax.swing.JFrame {
         home = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jLDoanhThu = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
+        jLTTCH = new javax.swing.JLabel();
 
         jLabel13.setText("jLabel13");
 
@@ -117,6 +118,11 @@ public class Admin extends javax.swing.JFrame {
         jLQLNV.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLQLNV.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLQLNV.setText("Quản lý nhân viên");
+        jLQLNV.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLQLNVMouseClicked(evt);
+            }
+        });
 
         jLQLKH.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLQLKH.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -125,6 +131,11 @@ public class Admin extends javax.swing.JFrame {
         jLTrangThai.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLTrangThai.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLTrangThai.setText("Trạng thái cửa hàng");
+        jLTrangThai.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLTrangThaiMouseClicked(evt);
+            }
+        });
 
         jLTroGiup.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jLTroGiup.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -211,17 +222,27 @@ public class Admin extends javax.swing.JFrame {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/du_an_1/logomain.png"))); // NOI18N
 
-        jLabel3.setBackground(new java.awt.Color(255, 204, 204));
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Doanh thu");
-        jLabel3.setOpaque(true);
+        jLDoanhThu.setBackground(new java.awt.Color(255, 204, 204));
+        jLDoanhThu.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLDoanhThu.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLDoanhThu.setText("Doanh thu");
+        jLDoanhThu.setOpaque(true);
+        jLDoanhThu.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLDoanhThuMouseClicked(evt);
+            }
+        });
 
         jLabel4.setBackground(new java.awt.Color(153, 255, 153));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("Quản lý nhân viên");
         jLabel4.setOpaque(true);
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
 
         jLabel5.setBackground(new java.awt.Color(204, 204, 255));
         jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -229,11 +250,16 @@ public class Admin extends javax.swing.JFrame {
         jLabel5.setText("Quản lý khách hàng");
         jLabel5.setOpaque(true);
 
-        jLabel6.setBackground(new java.awt.Color(255, 255, 102));
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("Trạng thái cửa hàng");
-        jLabel6.setOpaque(true);
+        jLTTCH.setBackground(new java.awt.Color(255, 255, 102));
+        jLTTCH.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        jLTTCH.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLTTCH.setText("Trạng thái cửa hàng");
+        jLTTCH.setOpaque(true);
+        jLTTCH.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLTTCHMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -243,24 +269,24 @@ public class Admin extends javax.swing.JFrame {
                 .addGap(21, 21, 21)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLDoanhThu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 179, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                    .addComponent(jLTTCH, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
                 .addGap(55, 55, 55))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addGap(17, 17, 17)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLDoanhThu, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 70, Short.MAX_VALUE)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLTTCH, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap(17, Short.MAX_VALUE))
         );
 
@@ -276,14 +302,14 @@ public class Admin extends javax.swing.JFrame {
                     .addGroup(homeLayout.createSequentialGroup()
                         .addGap(51, 51, 51)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addContainerGap(50, Short.MAX_VALUE))
         );
         homeLayout.setVerticalGroup(
             homeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(homeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(49, 49, 49))
         );
@@ -334,6 +360,40 @@ public class Admin extends javax.swing.JFrame {
         login.setVisible(true);
     }//GEN-LAST:event_jLDangXuatMouseClicked
 
+    private void jLDoanhThuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLDoanhThuMouseClicked
+        // TODO add your handling code here:
+        
+        
+    }//GEN-LAST:event_jLDoanhThuMouseClicked
+
+    private void jLTTCHMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLTTCHMouseClicked
+        // TODO add your handling code here:
+        dispose();
+        SanPham sanPham = new SanPham();
+        sanPham.setVisible(true);
+    }//GEN-LAST:event_jLTTCHMouseClicked
+
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        // TODO add your handling code here:
+        dispose();
+        QuanLyNhanVien quanLyNhanVien = new QuanLyNhanVien();
+        quanLyNhanVien.setVisible(true);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+    private void jLQLNVMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLQLNVMouseClicked
+        // TODO add your handling code here:
+        dispose();
+        QuanLyNhanVien quanLyNhanVien = new QuanLyNhanVien();
+        quanLyNhanVien.setVisible(true);
+    }//GEN-LAST:event_jLQLNVMouseClicked
+
+    private void jLTrangThaiMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLTrangThaiMouseClicked
+        // TODO add your handling code here:
+        dispose();
+        SanPham sanPham = new SanPham();
+        sanPham.setVisible(true);
+    }//GEN-LAST:event_jLTrangThaiMouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -378,18 +438,18 @@ public class Admin extends javax.swing.JFrame {
     private javax.swing.JPanel home;
     private javax.swing.JLabel jLClose;
     private javax.swing.JLabel jLDangXuat;
+    private javax.swing.JLabel jLDoanhThu;
     private javax.swing.JLabel jLQLKH;
     private javax.swing.JLabel jLQLNV;
+    private javax.swing.JLabel jLTTCH;
     private javax.swing.JLabel jLTrangThai;
     private javax.swing.JLabel jLTroGiup;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
